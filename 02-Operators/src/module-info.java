@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author ymall
- *
- */
-module operators {
-}
