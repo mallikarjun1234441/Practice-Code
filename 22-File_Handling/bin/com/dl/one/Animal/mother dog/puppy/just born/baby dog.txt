@@ -1,0 +1,1 @@
+This .txt file is an experiment while code practicing in the absolute path
