@@ -1,0 +1,216 @@
+Multi-Threading:
+
+The process that performs many operations simultaneously 
+is known as  Multi-Threading.
+
+There are two ways to create a thread that is either by using the Runnable 
+interface or by using the Thread class
+
+Whatever operations performed are with the help of CPU scheduler.
+
+CPU scheduler will allocate a particular time period for each and every operation
+
+Thread:
+
+Thread allows a program to divide into two or more operations running at same time
+
+Every thread in java is created and controlled by java.lang.Thread class.
+
+Thread is a light weight process because whenever we are creating thread, it is 
+not occupying the separate memory but it uses the same memory.
+
+Thread Scheduler:
+
+If Multiple threads are trying to execute which thread should be executed is
+decided by the Thread scheduler which is part of the JVM.
+
+We cannot expect the which algorithm or the behavior is  followed by the thread
+scheduler.
+
+It is a JVM Vendor dependent hence in multi-threading we cannot expect exact 
+execution order and exact output.
+
+Life cycle of Thread:
+
+Once we create a Thread Object then the thread is said be in new state or
+born state.
+
+Once we call the start() method the thread will be entered into the Ready or
+Runnable State.
+
+If the Thread Scheduler allocates the CPU then the thread will be entered into
+running state.
+
+Once run() Method completes, then the Thread will be entered into the dead state.
+
+Ways to create a thread:
+
+By extending a thread class.
+
+By implementing the Runnable interface.
+
+Difference between the start() method and Run() method:
+
+In case of start() method a new thread will be created.
+which is responsible for the execution of run() method.
+
+In case of run() method no new thread will be created.
+And run method is executed as the normal method.
+
+Getting names and setting names of the threads:-
+
+Every thread in java has some name.
+1.It may be default name given by the JVM or the Customized Name provided by the 
+Programmer.
+
+For example
+1.Each thread has the names like Thread0, Thread1, Thread2,....so on
+2.Java provides some methods to change the thread name and they are defined in
+java.lang.Thread class.
+
+We have the following methods of the to set and get the names of the threads.
+Public String getNames():is used to return the name of the thread.
+Public void setNames(StringName): is used to change the name of the thread.
+
+Get and set the priority of the thread:
+
+Public final int getPriority():
+java.lang.Thread getPriority() method returns the priority of the thread.
+
+Public final void setPriority(int newPriority): 
+java.lang.Thread setPriority() method changes the priority of the Thread to new 
+Priority value.
+
+This Method throw illegalArgumentException if value of parameter for new Priority
+goes less than minimum(1) and greater than maximum(10) limit.
+
+Thread Priority:
+Whenever we create a Thread in java, it always has some Priority assigned to it.
+
+Priority can either be given by the JVM while creating the Thread, or it can be
+set by the Programmer explicitly. 
+
+Accepted value of Thread Priority is in the range of 1 to 10.
+
+There are three static variables defined in the Thread class for priority.
+
+Public static int MIN_PRIORITY. This is the minimum priority that the thread can have, 
+value for this is 1.
+
+Public static int NORM_PRIORITY. This is the normal priority that the thread and
+value for this is 5.
+
+Public static int MAX_PRIORITY. This the maximum priority that the thread could
+have and the value for this range is 10.
+
+isAlive() method:
+Tests if the thread is alive. A thread is alive if it has been started and not
+yet died
+
+activeCount() method:
+An estimate number of active threads in the current thread group. 
+
+sleep() method:
+This method causes the currently executing thread to sleep for the specified 
+number of milliseconds.
+
+Sleeps for specified number of milliseconds 
+Public static void sleep(long milliseconds)throws interrupted exception.
+
+Sleeps for the specified number of milliseconds and specified nanoseconds 
+Public static void sleep(long milliseconds int nanoseconds) throws interrupted 
+exception.
+
+Join Method:
+java.lang.Thread class provides the join() method.
+which allows one thread to wait until the other thread to complete its execution.
+
+There are three overloaded join methods:
+
+public final void join()
+
+It will put the thread in wait until the thread which it is called dead.
+If the thread is interrupted then it will throw the interruptedException.
+
+public final synchronized void join(long milliseconds)
+
+It will put the current thread wait until the thread which it is called is dead
+or wait for specific time (milliseconds).
+
+public final synchronized void join(milliseconds, nanoseconds)
+
+It will put the current thread wait until the thread which it is called is dead 
+or wait for specific time(milliseconds, nanoseconds).
+
+Yield Method:
+Yield() method will pause the current thread for giving the chance of remaining
+waiting threads of same priority. 
+
+If any thread executes the yield method, thread scheduler checks if there is any 
+thread with higher or same priority than this thread, and if processor finds any
+thread then it will move the current thread to Ready/Runnable state, and processor
+give the chance other thread and if not -current thread will keep executing.
+
+public static native void yield()
+
+Note: So, sometimes even after using the yield() method there may not be any
+      difference in output.
+      
+SYNCHRONIZATION:
+
+Synchronization is to control the access of multiple threads
+to any share resources.
+
+Synchronization is used when we want to allow only one thread to shared resources.
+It follows sequential execution of threads.
+
+Synchronized method: More execution time and performance is low.
+
+Synchronized block: Less execution time and performance is high.
+
+INTER THREAD COMMUNICATION:
+
+If one thread wants to communicate with other thread is called Inter Thread -
+Communication.
+
+To perform the Inter-Thread, we have the following method
+
+public void wait()
+public void notify()
+public void notifyAll()
+
+wait() method, notify() method notifyAll() method belongs to java.lang.Object
+class not java.lang.Thread class.
+
+Wait() method :
+wait() method can be used to keep a thread in waiting state until the other 
+thread completes its work on same object.
+
+Note: The wait() method tells the calling Thread to give up the monitor and go
+to sleep until some other Thread enters the same monitor. 
+
+After completion of monitor method then it calls the notify() or notify() method
+to run the waited method.
+
+notify() method: notify() method is used to notify or wake up the thread that
+was waiting on the same object.
+
+notifyAll() method : Where notifyAll() method can be used to give notification 
+to all the waiting threading which are in waiting state.
+
+We can call all wait(), notify(), notifyAll() method from synchronized area only
+otherwise we will get Runtime Exception saying illegalMonitorStateException.
+
+
+      
+      
+      
+ 
+
+
+
+
+
+
+
+ 
